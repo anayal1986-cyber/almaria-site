@@ -4145,6 +4145,26 @@ const SB = (function(){
    shape into table writes, one case per flow, and a failure is shown rather
    than swallowed.
    ========================================================================== */
+
+/* Postgres stores each cost line under the register's own vocabulary; this
+   console has had its own category list since long before those registers were
+   found. This maps one to the other, and nothing else — it is a presentation
+   mapping between two existing labels, not a new deduction about the work. It
+   was checked rather than assumed: every one of the 100 imported lines was
+   matched against the seeded copy of the same line on 29 Aug 2026, and each
+   Postgres category resolved to exactly one console category with no line left
+   over and no category splitting two ways.
+
+   An unrecognised category falls to 'gen' — visibly general works — because
+   inventing a trade from a word this table has never used is the mistake this
+   project keeps having to undo. */
+const COST_CAT = {
+  plumbing:'plumb', hvac:'ac',      electrical:'elec',  security_sys:'elec',
+  cleaning:'clean', carpentry:'carp', finishes:'paint', appliance:'appl',
+  lift:'lift',      waste:'waste',  security:'sec',     labour:'gen',
+  grounds:'gen'
+};
+
 const LIVE = (function(){
   const WATCH = ['work_orders','announcements','instalments','leases','documents','units'];
   let state = null, subs = [], leaseOf = {}, lastErr = null, pulling = false, timer = null;
@@ -4156,18 +4176,32 @@ const LIVE = (function(){
 
   /* --------------------------------- read -------------------------------- */
   async function pull(){
-    const [units, leases, inst, wos, anns, docs] = await Promise.all([
+    const [units, leases, inst, wos, anns, docs, costs] = await Promise.all([
       SB.sel('units', 'select=*&order=id.asc'),
       SB.sel('leases', 'select=id,unit_id,starts_on,ends_on,contract_value,status,' +
                        'residents(name_en,name_ar)&status=eq.active&order=unit_id.asc'),
       SB.sel('instalments', 'select=*&order=lease_id.asc,seq.asc'),
       SB.sel('work_orders', 'select=*&order=raised_at.desc'),
       SB.sel('announcements', 'select=*&order=published_at.desc'),
-      SB.sel('documents', 'select=*&order=uploaded_at.desc')
+      SB.sel('documents', 'select=*&order=uploaded_at.desc'),
+      /* The office's own registers. This layer was written a week before
+         building_costs existed, so signing in used to EMPTY the maintenance
+         page: work_orders has no rows, and nothing here had been told about
+         the hundred imported invoice lines. Connecting made the console less
+         truthful than not connecting, which is the wrong way round.
+
+         Caught rather than allowed to propagate: if this one table is missing
+         or refused, the rent register must still load. A console that shows
+         nothing because of the cost table is worse than one that shows the
+         register and no costs. */
+      SB.sel('building_costs',
+             'select=id,occurred_on,description,amount,unit_id,category,invoice_no,' +
+             'suppliers(name_en)&order=occurred_on.asc,id.asc')
+        .catch(e => { console.warn('building_costs unavailable', e); return []; })
     ]);
     leaseOf = {};
     leases.forEach(l => { leaseOf[l.unit_id] = l.id; });
-    return {units, leases, inst, wos, anns, docs};
+    return {units, leases, inst, wos, anns, docs, costs};
   }
 
   const toRegister = d => d.units.map(u => {
@@ -4227,10 +4261,41 @@ const LIVE = (function(){
       mime:x.mime, size:Number(x.bytes) || 0, hash:x.sha256, algo:'SHA-256',
       at:x.uploaded_at, by:'', readable:x.readable, storage:'supabase', path:x.storage_path
     }));
+    /* Deliberately computed from the work orders ALONE, before the cost lines
+       are replayed below. The next resident request must not have its number
+       pushed along by an invoice from last year. */
     state.nextSeq = WOS.reduce((m,w) => {
       const n = parseInt(String(w.id).replace(/\D+/g,'').slice(-3), 10);
       return isNaN(n) ? m : Math.max(m, n + 1);
     }, 501);
+
+    /* The imported registers, replayed through the console's own entry path —
+       the same call the office makes when it types up a completed job, and the
+       same one the seeded copy uses. That is what makes them arrive as invoice
+       lines: done, no response time, no target, noSla true. They are NOT a
+       second parallel shape, and a resident-raised request under spec 004 is
+       still measured on its own timestamps and never unioned with these.
+
+       The id is built from the Postgres row, not from the position in this
+       list, so a line keeps its reference when a work order is logged. */
+    d.costs.forEach(c => {
+      const when = new Date(c.occurred_on + 'T12:00:00');
+      const u = UNITS.find(x => x.u === c.unit_id);
+      logJobAdd({
+        id: 'MR-' + String(when.getFullYear()).slice(2) +
+            String(when.getMonth() + 1).padStart(2,'0') +
+            '-I' + String(c.id).padStart(3,'0'),
+        unit: c.unit_id || '—',
+        cat: COST_CAT[c.category] || 'gen',
+        date: c.occurred_on,
+        supplier: (c.suppliers && c.suppliers.name_en) || '',
+        desc: c.description || '',
+        mat: Number(c.amount) || 0,
+        labH: 0,
+        inv: c.invoice_no || ''
+      }, u, when);
+    });
+
     recompute();
   }
 
