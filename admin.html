@@ -356,7 +356,7 @@ const D={
   nolog_cost:'No cost has been recorded, so there is nothing to break down by service or by apartment.',
   nolog_sla:'Response times cannot be measured until requests are logged with the time they were raised.',
   nolog_res:'No apartment has an app account, because the app is not in service. This figure becomes meaningful the day residents are invited.',
-  nolog_note:'Rent, arrears, leases and occupancy on this console are your real figures. Everything to do with maintenance is empty because no log exists — not because the data failed to load.',
+  nolog_note:'Every figure on this console is yours: rent, arrears, leases and occupancy from the register, and maintenance from your own invoice registers. Response times stay blank because an invoice does not record when the fault was reported.',
   log_open:'Enter a completed job',
   log_t:'Enter a job from a supplier invoice',
   log_d:'Use this for work already carried out. It records the cost against the apartment and the supplier. It does not record a response time, because an invoice does not carry one — jobs entered this way are left out of the SLA figures rather than counted as met.',
@@ -662,7 +662,7 @@ const D={
   f_credit:'Paid in advance', f_credit_d:'Collected ahead of the due date', f_ahead:'Ahead',
   e_wo:'No work orders match', e_wo_d:'Clear the search or choose a different filter.',
   e_arr:'No apartment is in arrears', e_arr_d:'Every billed instalment has been collected.',
-  demo:'Units, areas, leases, contract values, payment schedules, arrears and occupancy are the real register at 19 August 2026. Tenant names are substituted and no identity numbers are carried. Nothing about maintenance is simulated — Almaria has no maintenance log, so those figures are empty until jobs are recorded.',
+  demo:'Units, areas, leases, contract values, payment schedules, arrears and occupancy are the real register at 19 August 2026. Tenant names are substituted and no identity numbers are carried. Maintenance comes from the invoice registers kept by the office, imported 29 August 2026 — 100 lines, SAR 334,019, December 2024 to June 2026. An invoice carries no response or close time, so those jobs are excluded from SLA and average-close rather than given an invented one.',
   seriesnote:'Series colours use a contrast- and colour-blindness-validated palette rather than the brand gold, which fails those checks as a data colour. Brand colour is kept for interface chrome.'
  },
  ar:{
@@ -762,7 +762,7 @@ const D={
   nolog_cost:'لم تُسجَّل أي تكلفة، فلا يوجد ما يمكن تفصيله حسب الخدمة أو الشقة.',
   nolog_sla:'لا يمكن قياس أزمنة الاستجابة قبل تسجيل الطلبات بوقت رفعها.',
   nolog_res:'لا يوجد حساب تطبيق لأي شقة، لأن التطبيق غير مفعّل بعد. يصبح هذا الرقم ذا معنى يوم دعوة السكان.',
-  nolog_note:'الإيجارات والمتأخرات والعقود والإشغال في هذه المنصة أرقامكم الفعلية. كل ما يخص الصيانة فارغ لعدم وجود سجل — لا لأن البيانات لم تُحمّل.',
+  nolog_note:'كل رقم في هذه المنصة رقمكم: الإيجارات والمتأخرات والعقود والإشغال من السجل، والصيانة من سجلات فواتيركم. أما أزمنة الاستجابة فتبقى فارغة لأن الفاتورة لا تسجّل وقت الإبلاغ عن العطل.',
   log_open:'إدخال عمل منفَّذ',
   log_t:'إدخال عمل من فاتورة مورّد',
   log_d:'يُستخدم للأعمال المنفَّذة سابقاً. يسجّل التكلفة على الشقة وعلى المورّد، ولا يسجّل زمن استجابة لأن الفاتورة لا تحمله — وتُستثنى هذه الأعمال من مؤشر الالتزام بدل احتسابها ملتزمة.',
@@ -1013,7 +1013,7 @@ const D={
   f_credit:'مدفوع مقدماً', f_credit_d:'محصّل قبل تاريخ الاستحقاق', f_ahead:'مقدماً',
   e_wo:'لا توجد أوامر عمل مطابقة', e_wo_d:'امسح البحث أو اختر تصفية أخرى.',
   e_arr:'لا توجد شقة عليها متأخرات', e_arr_d:'تم تحصيل جميع الدفعات المفوترة.',
-  demo:'الوحدات والمساحات والعقود وقيمها وجداول الدفعات والمتأخرات ونسبة الإشغال هي السجل الفعلي حتى ١٩ أغسطس ٢٠٢٦. أسماء المستأجرين مستبدلة ولا تتضمن أي أرقام هوية. لا يوجد أي رقم صيانة افتراضي — لا يوجد لدى المارية سجل صيانة، لذا تبقى تلك الأرقام فارغة حتى تُسجَّل أعمال فعلية.',
+  demo:'الوحدات والمساحات والعقود وقيمها وجداول الدفعات والمتأخرات ونسبة الإشغال هي السجل الفعلي حتى ١٩ أغسطس ٢٠٢٦. أسماء المستأجرين مستبدلة ولا تتضمن أي أرقام هوية. أرقام الصيانة مأخوذة من سجلات فواتير الإدارة نفسها، وقد أُدرجت في ٢٩ أغسطس ٢٠٢٦ — ١٠٠ بنداً بقيمة ٣٣٤٬٠١٩ ريالاً من ديسمبر ٢٠٢٤ حتى يونيو ٢٠٢٦. والفاتورة لا تحمل وقت بلاغ ولا وقت إغلاق، لذا تُستثنى تلك الأعمال من مؤشر الاستجابة ومتوسط الإغلاق بدلاً من منحها وقتاً مُفترضاً.',
   seriesnote:'ألوان الرسوم تستخدم لوحة مُتحقق منها لتباين ولعمى الألوان بدلاً من الذهبي المؤسسي الذي لا يجتاز هذه الاختبارات كلون بيانات. اللون المؤسسي مخصص لواجهة النظام.'
  }
 };
@@ -1064,7 +1064,12 @@ const CATS=[
  {id:'lift', en:'Elevator',           ar:'المصاعد',            sla:2,  wt:5,  cost:[400,3200]},
  {id:'paint',en:'Painting',           ar:'أعمال الدهانات',     sla:72, wt:3,  cost:[250,1600]},
  {id:'waste',en:'Waste collection',   ar:'جمع النفايات',       sla:12, wt:3,  cost:[80,250]},
- {id:'wifi', en:'Internet & WiFi',    ar:'الإنترنت والواي فاي',sla:24, wt:3,  cost:[0,400]}
+ {id:'wifi', en:'Internet & WiFi',    ar:'الإنترنت والواي فاي',sla:24, wt:3,  cost:[0,400]},
+ /* Added 29 Aug 2026 for the office's own registers. Guarding and general
+    works are real spend the console had no bucket for. Both only ever carry
+    invoice-entered jobs, which are noSla, so their sla is never consulted. */
+ {id:'sec',  en:'Security & guarding', ar:'الحراسة والأمن',     sla:24, wt:0,  cost:[0,0]},
+ {id:'gen',  en:'General & other',     ar:'أعمال عامة ومتنوعة', sla:48, wt:0,  cost:[0,0]}
 ];
 const CAT=id=>CATS.find(c=>c.id===id)||CATS[0];
 const catName=c=>L(c.en,c.ar);
@@ -1123,6 +1128,21 @@ const DESCS={
    only with jobs that are actually recorded — raised by a resident in the app,
    or entered here from a supplier invoice. Nothing in it is invented. */
 const WOS=[];
+
+/* ---------------------------------------------------------------------
+   The office's own cost registers, imported 29 Aug 2026 from
+   اعمال الصيانة / العقود الخارجية / العمالة الخارجية.
+   100 lines, SAR 334,019, Dec 2024 - Jun 2026, reconciled to each
+   register's own stated total to the halala.
+
+   These are INVOICES. They carry no requested-at and no closed-at, so they
+   are replayed through logJobAdd(), which marks every one noSla: they build
+   cost by supplier, category and unit, and are excluded from SLA and
+   average-close. A dash for the unit means the invoice named no flat. 94 of
+   the 100 did not, and a flat is never guessed.
+   --------------------------------------------------------------------- */
+const COST_LOG=[{"d":"2025-01-21","c":"gen","u":"A-105","s":"","t":"مصاريف خدمات شقة 105 المستأجر اليابانى","m":52000.0,"i":""},{"d":"2025-03-22","c":"plumb","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 085- صيانة مجموعة مضخات المياة - مؤسسة دانة الدرة للمقاولات العامة","m":21505.0,"i":"085-"},{"d":"2025-03-22","c":"ac","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 086- تركيب ترموستات مع تامين اعمال بمبنى الشقق - مؤسسة دانة الدرة للمقاولات العامة","m":1150.0,"i":"086-"},{"d":"2025-04-14","c":"plumb","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 091- اعمال المياة والكهرباء لحوض الزراعة - مؤسسة دانة الدرة للمقاولات العامة","m":7000.0,"i":"091-"},{"d":"2025-04-15","c":"waste","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 094- توريد حاوية لترحيل مخلفات - مؤسسة دانة الدرة للمقاولات العامة","m":2200.0,"i":"094-"},{"d":"2025-04-16","c":"elec","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 106- اعمال تمديد اسلاك وكاميرات واعمال متفرقة - مؤسسة دانة الدرة للمقاولات العامة","m":37950.0,"i":"106-"},{"d":"2025-06-02","c":"paint","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 101-تركيب بلاط اسمنتي - مؤسسة دانة الدرة للمقاولات العامة","m":1840.0,"i":"101-"},{"d":"2025-06-22","c":"clean","u":"—","s":"","t":"فواتير مغاسل مخدات وشراشف شقق المارية","m":156.0,"i":""},{"d":"2025-07-06","c":"ac","u":"—","s":"","t":"تعبئة فريون للتكييف في شقق المارية","m":2824.0,"i":""},{"d":"2025-07-29","c":"gen","u":"—","s":"","t":"اغراض ميكانيكية لمبنى الشقق","m":221.0,"i":""},{"d":"2025-07-29","c":"ac","u":"—","s":"","t":"عدد 5 ترموستات مبنى الشقق","m":1265.0,"i":""},{"d":"2025-07-29","c":"gen","u":"—","s":"","t":"عدد 5 علبة لوح استيكر مع عروف","m":600.0,"i":""},{"d":"2025-07-29","c":"elec","u":"—","s":"","t":"خرطوم درجة حرارة مع انوار ليد","m":2300.0,"i":""},{"d":"2025-08-04","c":"paint","u":"—","s":"","t":"قص واصلاح عربات الحديد وطلاء الايبوكسي","m":1208.0,"i":""},{"d":"2025-08-04","c":"elec","u":"—","s":"","t":"محول+سلك تمديد","m":598.0,"i":""},{"d":"2025-08-04","c":"elec","u":"—","s":"","t":"عربة نفايات + ريليهات لمبنى الشقق","m":1483.0,"i":""},{"d":"2025-08-05","c":"gen","u":"—","s":"","t":"حوالة صادرة الى اديل احمد رسوم تقديم خدمات لمبنى الشقق","m":5000.0,"i":""},{"d":"2025-08-06","c":"carp","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 108- اعمال صيانة باب خشبي - مؤسسة دانة الدرة للمقاولات العامة","m":1495.0,"i":"108-"},{"d":"2025-08-27","c":"paint","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 110 - صيانة جبس ودهانات  - مؤسسة دانة الدرة للمقاولات العامة","m":2760.0,"i":"110"},{"d":"2025-09-01","c":"gen","u":"—","s":"MinaTech Trading","t":"فاتورة رقم 965  اغراض ميكانيكة شقق المارية - شركة مينا تك للتجارة","m":149.5,"i":"965"},{"d":"2025-09-01","c":"gen","u":"—","s":"Fayafi Najd Ltd","t":"فاتورة رقم 101 اغراض ميكانيكة شقق المارية - شركة فيافي نجد المحدودة","m":276.0,"i":"101"},{"d":"2025-09-01","c":"ac","u":"—","s":"","t":"سداد رسوم تعبئة فريون لشقق المارية","m":2824.0,"i":""},{"d":"2025-09-01","c":"plumb","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 111- اصلاح وصيانة خطوط الصرف الصحي - مؤسسة دانة الدرة للمقاولات العامة","m":3680.0,"i":"111-"},{"d":"2025-09-08","c":"carp","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 112- اصلاح جبمسبورد وباب وتثبيت سرير - مؤسسة دانة الدرة للمقاولات العامة","m":2070.0,"i":"112-"},{"d":"2025-09-21","c":"plumb","u":"—","s":"","t":"وايت مياهخ - تعبئة خزان مبنى الشقق","m":200.0,"i":""},{"d":"2025-09-21","c":"plumb","u":"—","s":"","t":"فلتر مياه لقشة الشيخ","m":799.0,"i":""},{"d":"2025-09-21","c":"gen","u":"—","s":"","t":"اغراض ميكانيكية - شقق المارية","m":490.0,"i":""},{"d":"2025-09-22","c":"plumb","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 116- اعمال سباكة وديكور للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":1610.0,"i":"116-"},{"d":"2025-10-08","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 121 - صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":1610.0,"i":"121"},{"d":"2025-10-08","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 122 - صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":1955.0,"i":"122"},{"d":"2025-10-13","c":"carp","u":"—","s":"","t":"تركيب عدد 2 بارتشن خشب - شقق المارية","m":2530.0,"i":""},{"d":"2025-10-13","c":"carp","u":"—","s":"","t":"رسوم تركيب فايبر للبارتشن - شقق المارية","m":1580.0,"i":""},{"d":"2025-10-13","c":"ac","u":"—","s":"","t":"قيمة ثلاجة + مكيف - شقق المارية","m":2409.0,"i":""},{"d":"2025-10-30","c":"ac","u":"—","s":"Al-Tawreedat Al-Khususiyah Trading","t":"فاتورة رقم 2451 - مؤسسة التوريدات الخصوصية للتجارة - فريون لوحدات التكييف الخاص بالشقق","m":2200.0,"i":"2451"},{"d":"2025-10-30","c":"elec","u":"—","s":"MinaTech Trading","t":"فاتورة رقم 1774 - شركة ميناتيك للتجارة - اجهزة الريسيفر الخاص بالشقق","m":700.0,"i":"1774"},{"d":"2025-10-30","c":"elec","u":"—","s":"MinaTech Trading","t":"فاتورة رقم 1775 - شركة ميناتيك للتجارة - كابلات وريسيفرات الخاصة بالشقق","m":280.0,"i":"1775"},{"d":"2025-10-30","c":"plumb","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 137 - مؤسسة دانة الدرة - توريد وتركيب سخان خزف","m":1600.0,"i":"137"},{"d":"2025-11-01","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 116- صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":1400.0,"i":"116-"},{"d":"2025-11-01","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 119- صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":1200.0,"i":"119-"},{"d":"2025-11-01","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 124- صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":3200.0,"i":"124-"},{"d":"2025-11-01","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 125- صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":600.0,"i":"125-"},{"d":"2025-11-01","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 126- صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":1800.0,"i":"126-"},{"d":"2025-11-01","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 129- صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":700.0,"i":"129-"},{"d":"2025-11-01","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 130- صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":700.0,"i":"130-"},{"d":"2025-11-01","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 131- صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":1000.0,"i":"131-"},{"d":"2025-11-01","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 132- صيانة عامة وقطع غيار للشقق - مؤسسة دانة الدرة للمقاولات العامة","m":800.0,"i":"132-"},{"d":"2025-11-09","c":"elec","u":"A-205","s":"","t":"تركيب كاميرات - شقة 205","m":670.0,"i":""},{"d":"2025-11-09","c":"gen","u":"A-005","s":"","t":"تركيب زرع للاحواض شقة 005","m":4050.0,"i":""},{"d":"2025-11-20","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 068 - اجور ومصنعيات اعمال - مؤسسة دانة الدرة","m":2700.0,"i":"068"},{"d":"2025-11-20","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 070- اجور ومصنعيات اعمال - مؤسسة دانة الدرة","m":2100.0,"i":"070-"},{"d":"2025-11-20","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 073- اجور ومصنعيات اعمال - مؤسسة دانة الدرة","m":1700.0,"i":"073-"},{"d":"2025-11-20","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 074- اجور ومصنعيات اعمال - مؤسسة دانة الدرة","m":1000.0,"i":"074-"},{"d":"2025-11-20","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 075- اجور ومصنعيات اعمال - مؤسسة دانة الدرة","m":9500.0,"i":"075-"},{"d":"2025-11-20","c":"lift","u":"—","s":"","t":"تركيب زوايا حول منطقة المصاعد - مبنى الشقق","m":920.0,"i":""},{"d":"2025-11-20","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 077- اجور ومصنعيات اعمال - مؤسسة دانة الدرة","m":1300.0,"i":"077-"},{"d":"2025-11-20","c":"gen","u":"—","s":"Dana Al-Durra General Contracting","t":"فاتورة رقم 078- اجور ومصنعيات اعمال - مؤسسة دانة الدرة","m":3300.0,"i":"078-"},{"d":"2025-12-16","c":"carp","u":"—","s":"","t":"فاتورة 46142 شراء كرسى بار","m":230.0,"i":"46142"},{"d":"2025-12-16","c":"carp","u":"—","s":"","t":"فاتورة 46093 شراء كرسى بار","m":230.0,"i":"46093"},{"d":"2025-12-31","c":"carp","u":"—","s":"","t":"تركيب 2 بارتيشن فايبر + خشب","m":5730.0,"i":""},{"d":"2026-02-16","c":"appl","u":"A-207","s":"","t":"فاتورة كشف اعطال الثلاجة في الشقة رقم 207- تم سدادها عن طريق المهندس محمد محيي","m":230.0,"i":""},{"d":"2026-03-01","c":"carp","u":"—","s":"","t":"شراء ستارة في البينت هاوس 303","m":283.0,"i":""},{"d":"2026-04-26","c":"elec","u":"—","s":"","t":"رسوم اعادة برمجة النظام الخاص بابواب الشقق","m":1380.0,"i":""},{"d":"2026-05-24","c":"appl","u":"B-109","s":"","t":"فاتورة رقم 143 - صيانة غسالة بشقة رقم 109","m":575.0,"i":"143"},{"d":"2026-05-24","c":"gen","u":"B-303","s":"","t":"فاتورة رقم 152- اعمال صيانة بشقة رقم 303","m":575.0,"i":"152-"},{"d":"2025-06-30","c":"gen","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 34898 عدد ثلاث زيارات لمبنى الشقق من شركة سكن العربية للانشاء والصيانة (سوبركل)","m":750.0,"i":"34898"},{"d":"2025-07-31","c":"clean","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 35193 نظافة مبنى الشقق شهر يوليو 2025 من شركة سكن العربية للانشاء والصيانة (سوبركل)","m":1000.0,"i":"35193"},{"d":"2025-08-07","c":"lift","u":"—","s":"KONE Erico Ltd","t":"فاتورة رقم 62039479 صيانة دورية للمصاعد - كوني اريكو المحدودة","m":8214.97,"i":"62039479"},{"d":"2025-08-31","c":"clean","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 25412 نظافة مبنى الشقق شهر اغسطس 2025 من شركة سكن العربية للانشاء والصيانة (سوبركل)","m":1000.0,"i":"25412"},{"d":"2025-10-31","c":"clean","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 36388 نظافة مبنى الشقق شهر اكتوبر 2025 من شركة سكن العربية للانشاء والصيانة (سوبركل)","m":1000.0,"i":"36388"},{"d":"2025-11-30","c":"clean","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 36603 نظافة مبنى الشقق شهر نوفمبر 2025 من شركة سكن العربية للانشاء والصيانة (سوبركل)","m":1000.0,"i":"36603"},{"d":"2026-01-31","c":"clean","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 3369 نظافة شهر يناير 2026 - شركة سكن العربية للانشاء والصيانة (سوبركل)","m":1000.0,"i":"3369"},{"d":"2026-02-28","c":"clean","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 37737 نظافة شهر فبراير 2026 - شركة سكن العربية للانشاء والصيانة (سوبركل)","m":1000.0,"i":"37737"},{"d":"2026-04-30","c":"clean","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 38550 نظافة شهر ابريل 2026 - شركة سكن العربية للانشاء والصيانة (سوبركل)","m":1000.0,"i":"38550"},{"d":"2026-05-31","c":"clean","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 38767 نظافة شهر مايو 2026 - شركة سكن العربية للانشاء والصيانة (سوبركل)","m":1000.0,"i":"38767"},{"d":"2026-06-30","c":"clean","u":"—","s":"Sakan Arabia for Construction & Maintenance (Supercle)","t":"فاتورة رقم 39152 نظافة شهر يونيو 2026 - شركة سكن العربية للانشاء والصيانة (سوبركل)","m":1000.0,"i":"39152"},{"d":"2024-12-31","c":"sec","u":"—","s":"","t":"فاتورة رقم 01226- عدد 3 افراد حراسة 8 ساعة يوميا - شهر ديسمبر 2024","m":12300.0,"i":"01226-"},{"d":"2025-01-18","c":"sec","u":"—","s":"","t":"فاتورة رقم 01263- عدد 3 افراد حراسة 8 ساعة يوميا - شهر يناير 2025","m":6969.99,"i":"01263-"},{"d":"2025-03-31","c":"sec","u":"—","s":"Saad Al-Jazeera Security Guarding","t":"فاتورة رقم 784- رجل امن 8 ساعات للشقق السكنية-شركة سعد الجزيرة للحراسات الأمنية","m":4200.0,"i":"784-"},{"d":"2025-04-30","c":"sec","u":"—","s":"","t":"فاتورة رقم 1077 - حراسة رجل امن شهر ابريل 2025","m":4200.0,"i":"1077"},{"d":"2025-05-20","c":"sec","u":"—","s":"","t":"فاتورة رقم 1267 - حراسة رجل امن شهر مايو 2025 عدد 19 يوم","m":2660.0,"i":"1267"},{"d":"2025-05-27","c":"clean","u":"—","s":"","t":"فاتورة رقم 458 رواتب عمال نظافة شهر مايو 2025","m":5600.0,"i":"458"},{"d":"2025-07-06","c":"gen","u":"—","s":"","t":"اضافي عمال الفوربوينتس في شقق المارية شهر مايو 2025","m":374.0,"i":""},{"d":"2025-07-06","c":"gen","u":"—","s":"","t":"اضافي عمال الفوربوينتس في شقق المارية شهر يونيو 2025","m":636.0,"i":""},{"d":"2025-07-11","c":"clean","u":"—","s":"","t":"فاتورة رقم 483 رواتب عمال نظافة شهر يونيو  2025","m":9200.0,"i":"483"},{"d":"2025-07-25","c":"sec","u":"—","s":"","t":"فاتورة رقم 487 رواتب 2 عمال + عامل الامن شهر يوليو 2025","m":8419.35,"i":"487"},{"d":"2025-08-04","c":"gen","u":"—","s":"","t":"صرف اضافي عمال الشقق - شهر يوليو 2025","m":1192.0,"i":""},{"d":"2025-09-01","c":"sec","u":"—","s":"","t":"فاتورة رقم 509 -رواتب 2 عمال + عامل الامن شهر اغسطس 2025","m":9890.0,"i":"509"},{"d":"2025-09-28","c":"sec","u":"—","s":"","t":"فاتورة رقم 522 -رواتب 2 عمال + عامل الامن شهر سبتمبر 2025","m":8165.0,"i":"522"},{"d":"2025-10-13","c":"gen","u":"—","s":"","t":"اوفر تايم عدد 4 فني شهر سبتمبر 2025 - شقق المارية","m":874.0,"i":""},{"d":"2025-10-30","c":"gen","u":"—","s":"","t":"صرف بدل عمل وقت اضافي - عمال شقق المارية","m":473.4,"i":""},{"d":"2025-12-02","c":"gen","u":"—","s":"","t":"اصافي عمال الشقق السكنية","m":1104.0,"i":""},{"d":"2026-01-15","c":"gen","u":"—","s":"","t":"صرف اضافي عمال الفندق في الشقق السكنية شهر ديسمبر 2025","m":1867.0,"i":""},{"d":"2026-02-01","c":"clean","u":"—","s":"","t":"فاتورة رقم 588 - رواتب عمال الهاوس كيبنج شهر يناير 2026","m":5600.0,"i":"588"},{"d":"2026-02-08","c":"gen","u":"—","s":"","t":"صرف اضافي عمال الفندق في الشقق السكنية شهر يناير 2026","m":1080.23,"i":""},{"d":"2026-02-26","c":"gen","u":"—","s":"","t":"صرف اضافي عمال الفندق في الشقق السكنية شهر فبراير 2026","m":2420.36,"i":""},{"d":"2026-03-26","c":"gen","u":"—","s":"","t":"صرف اضافي عمال الفندق في الشقق السكنية شهر مارس 2026","m":1225.94,"i":""},{"d":"2026-04-27","c":"clean","u":"—","s":"","t":"فاتورة رقم 628- رواتب عمال الهاوس كيبنج شهر ابريل 2026","m":1717.33,"i":"628-"},{"d":"2026-04-30","c":"gen","u":"—","s":"","t":"بدل ساعات اضافية - عمال الفندق في شقق المارية شهر ابريل 2026","m":2714.84,"i":""},{"d":"2026-05-30","c":"gen","u":"—","s":"","t":"بدل ساعات اضافية - عمال الفندق في شقق المارية شهر مايو 2026","m":2416.54,"i":""},{"d":"2026-06-30","c":"gen","u":"—","s":"","t":"بدل ساعات اضافية - عمال الفندق في شقق المارية شهر يونية 2026","m":2363.55,"i":""}];
+
 
 /* ==========================================================================
    ALMARIA LINK — the shared record between the resident app and the
@@ -2201,7 +2221,9 @@ function pgOver(){
     :stat(T('st_sla'),NUM(slaNow)+'%',{t:(slaDelta===null?'':(slaDelta>=0?'+':'')+NUM(Math.abs(slaDelta))+' '+T('vs')),cls:slaDelta>=0?'up':'down',ic:slaDelta>=0?'up':'down'},
     `<div class="meter"><i style="width:${slaNow}%"></i></div>`)}
   ${stat(T('st_close'),avgClose===null?'—':NUM(avgClose.toFixed(1))+' '+T('hrs'),{t:avgClose===null?T('nolog_sla'):T('target')+' 24 '+T('hrs'),cls:'flat'})}
-  ${stat(T('st_cost'),money(monthCost),{t:(costDelta>=0?'+':'−')+NUM(Math.abs(costDelta))+'% '+T('vs'),cls:costDelta<=0?'up':'down',ic:costDelta<=0?'down':'up'})}
+  ${(function(){var lm=(monthCost===0)?lastCostMonth():null; return lm
+    ? stat(T('st_cost'),money(monthCost),{t:L('last booked ','آخر تسجيل ')+lm,cls:'flat'})
+    : stat(T('st_cost'),money(monthCost),{t:(costDelta>=0?'+':'−')+NUM(Math.abs(costDelta))+'% '+T('vs'),cls:costDelta<=0?'up':'down',ic:costDelta<=0?'down':'up'});})()}
   ${stat(T('st_occ'),NUM(occupied)+'/'+NUM(37),{t:NUM(Math.round(occupied/37*100))+'%',cls:'flat'},
     `<div class="meter"><i style="width:${occupied/37*100}%"></i></div>`)}
   ${stat(T('st_adopt'),NUM(appShare)+'%',{t:NUM(activated)+' '+T('of')+' '+NUM(occupied)+' '+T('units')+' '+L('activated','مفعّلة'),cls:'flat'},
@@ -2421,7 +2443,7 @@ function woDetail(id){
 
   <div class="card mb"><div class="bd">
    <dl class="kv">
-    <dt>${T('unit')}</dt><dd>${NUM(w.unit)} · ${UNITS.find(u=>u.u===w.unit).type}</dd>
+    <dt>${T('unit')}</dt><dd>${NUM(w.unit)} · ${(UNITS.find(u=>u.u===w.unit)||{}).type||'—'}</dd>
     <dt>${T('resident')}</dt><dd>${L(w.tenant,w.tenant_ar)}</dd>
     <dt>${T('category')}</dt><dd>${catName(c)}</dd>
     <dt>${T('intake')}</dt><dd>${T('ch_'+(w.ch==='wa'?'wa':w.ch))}</dd>
@@ -4477,6 +4499,32 @@ function sbDoSignOut(){
   closeDrawer();
   location.reload();
 }
+
+/* Replay the imported registers through the console's own invoice path, so
+   each record is exactly what the 'Enter a completed job' form produces —
+   noSla included — rather than a second, parallel shape. */
+/* The cost tile reads 'this month'. The imported registers end in June 2026,
+   so in August it correctly shows zero — and reads like a failed import. Say
+   when spend was last booked instead of showing a 0% delta against nothing. */
+function lastCostMonth(){
+  var ms = WOS.filter(function(w){ return (w.mat||0) > 0 && w.month; })
+              .map(function(w){ return w.month; }).sort();
+  return ms.length ? ms[ms.length-1] : null;
+}
+
+(function seedCostLog(){
+  if(typeof COST_LOG === 'undefined' || !COST_LOG.length) return;
+  COST_LOG.forEach(function(x){
+    var d = new Date(x.d + 'T12:00:00');
+    var u = UNITS.find(function(y){ return y.u === x.u; });
+    logJobAdd({ unit:x.u, cat:x.c, date:x.d, supplier:x.s, desc:x.t,
+                mat:x.m, labH:0, inv:x.i }, u, d);
+  });
+  recompute();
+  /* The first render has already run by the time this executes, so it painted
+     the empty state. Repaint, or the log only appears on the next click. */
+  if(typeof render === 'function') render();
+})();
 
 /* ---------------------------- backend at boot ---------------------------- */
 (async function(){
